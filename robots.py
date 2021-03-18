@@ -1,4 +1,6 @@
 
 
 class Robots:
-    pass
+    def __init__(self):
+        self.name = ''
+        
