@@ -1,6 +1,4 @@
 import math
-from dinosaurs import Dinosaur
-from weapons import Weapons
 
 class Robot:
     def __init__(self, name):
@@ -13,18 +11,26 @@ class Robot:
 
 
     def attack_dino(self, dino_obj):
-        if dino_obj.health <= 0:
+        if self.health == 0 or self.power_level == 0:
+            print("Energy/Health depleted")
+        elif dino_obj.health <= 0:
             dino_obj.health = 0
             dino_obj.energy = 0
             dino_obj.attack_power = 0
         else:
             dino_obj.health -= math.ceil(self.attack_power / 4)
-            self.power_level -= 10
+            self.power_level = self.power_level - 10
 
-        def health_check(dino_obj):
-            if dino_obj.health <= 0:
-                dino_obj.health = 0
-        health_check(dino_obj)
+            def stat_check(dino_obj):
+                if dino_obj.health <= 0:
+                    dino_obj.health = 0
+                elif dino_obj.energy <= 0:
+                    dino_obj.energy = 0
+                elif dino_obj.attack_power <= 0:
+                    dino_obj.attack_power = 0
+
+            stat_check(dino_obj)
+
 
     def choose_weapon(self, available_weapons):
         weapon_choice =  input("Select weapon from available list: ")

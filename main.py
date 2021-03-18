@@ -22,10 +22,12 @@ if __name__ == '__main__':
     robot_megaman = Robot("Mega Man")
     robot_megaman.power_level = 110
     robot_megaman.attack_power = 120
+    weapons.choose_weapon(robot_megaman)
 
     robot_marvin = Robot("Marvin")
     robot_marvin.power_level = 90
     robot_marvin.attack_power = 90
+    weapons.choose_weapon(robot_marvin)
 
     #Dinos
     dino_one = Dinosaur("Tyrannosaurus")
@@ -34,20 +36,27 @@ if __name__ == '__main__':
 
     dino_two = Dinosaur("Stegosaurus")
     dino_two.attack_power = 60
+    weapons.choose_attack(dino_two)
 
     dino_three = Dinosaur("Velociraptor")
     dino_three.attack_power = 85
+    weapons.choose_attack(dino_three)
 
     #Actions
     robot_megaman.attack_dino(dino_two)
     robot_megaman.attack_dino(dino_two)
-    robot_megaman.attack_dino(dino_two)
-
     robot_marvin.attack_dino(dino_one)
     robot_marvin.attack_dino(dino_one)
     robot_marvin.attack_dino(dino_one)
     robot_marvin.attack_dino(dino_one)
-
+    robot_marvin.attack_dino(dino_one)
+    dino_two.attack_robo(robot_megaman)
+    dino_two.attack_robo(robot_megaman)
+    dino_two.attack_robo(robot_megaman)
+    dino_one.attack_robo(robot_marvin)
+    dino_one.attack_robo(robot_marvin)
+    robot_marvin.attack_dino(dino_one)
+    robot_megaman.attack_dino(dino_three)
     robot_megaman.attack_dino(dino_three)
     robot_megaman.attack_dino(dino_three)
 

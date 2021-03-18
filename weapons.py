@@ -2,7 +2,7 @@ from copy import deepcopy
 
 class Weapons:
     def __init__(self):
-        self.weapon_list = ["Sword", "Laser Rifle", "Fist", "Rock"]
+        self.weapon_list = ["Sword", "Cannon", "Fist", "Rock"]
         self.attack_list = ("Stomp", "Roar", "Bite")
         print(f'Available Weapons: {self.weapon_list}\nAvailable Attacks: {self.attack_list}\n')
 
