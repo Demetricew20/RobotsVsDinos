@@ -7,6 +7,7 @@ from weapons import Weapons
 
 
 if __name__ == '__main__':
+
     #Battlefield
     battlefield = Battlefield()
 
@@ -88,7 +89,7 @@ if __name__ == '__main__':
                 count += 1
 
             if len(element) == 0:
-                return "Battle concluded: Dinos have won!"
+                return "\nBattle concluded: Dinos have won!"
 
         for element in dino_herd.herd:
             count = 0
@@ -99,8 +100,8 @@ if __name__ == '__main__':
                 count += 1
 
             if len(element) == 0:
-                return "Battle concluded: Robos have won!"
+                return "\nBattle concluded: Robos have won!"
 
-        return "Battle Ongoing!"
+        return "\nBattle Ongoing!"
 
     print(conclude_battle(robot_fleet, dino_herd))

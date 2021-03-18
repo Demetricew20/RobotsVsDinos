@@ -12,7 +12,7 @@ class Robot:
 
     def attack_dino(self, dino_obj):
         if self.health == 0 or self.power_level == 0:
-            print("Energy/Health depleted")
+            return "Health/Energy depleted"
         elif dino_obj.health <= 0:
             dino_obj.health = 0
             dino_obj.energy = 0
@@ -40,4 +40,5 @@ class Robot:
             self.weapon = weapon_choice
 
     def __repr__(self):
-        return f'Robo * {self.name} - Weapon: {self.weapon}, Health: {self.health}, Power: {self.power_level}, Attack: {self.attack_power}'
+        return f'Robo * {self.name} - Weapon: {self.weapon}, Health: {self.health}, ' \
+               f'Power: {self.power_level}, Attack: {self.attack_power}'

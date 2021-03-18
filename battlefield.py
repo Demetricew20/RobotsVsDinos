@@ -12,4 +12,4 @@ class Battlefield:
 
 
     def __repr__(self):
-        return f'Battlfield: {self.user_input}'
+        return f'\nBattlefield: {self.user_input}\n'
