@@ -8,6 +8,10 @@ from battlefield import Battlefield
 
 
 if __name__ == '__main__':
+    #Battlefield
+    valley = Battlefield("Valley")
+
+
 
     # Robots
     robot_wally = Robots("Wally", "Love")
@@ -34,8 +38,15 @@ if __name__ == '__main__':
     dino_three.attack_power = 85
 
     #Actions
+    #----- Fix health to only display positive int, currently, will display negative before final attack call ----#
+    robot_megaman.attack_dino(dino_two)
+    robot_megaman.attack_dino(dino_two)
     robot_megaman.attack_dino(dino_two)
 
+    dino_three.attack_robo(robot_marvin)
+    dino_three.attack_robo(robot_marvin)
+
+    print(valley)
     print(robot_wally)
     print(robot_megaman)
     print(robot_marvin)
@@ -52,7 +63,6 @@ if __name__ == '__main__':
     dino_herd = Herd()
     dino_herd.add_to_herd([dino_one.type, dino_two.type, dino_three.type])
     print(dino_herd.herd)
-
 
 
 
