@@ -1,5 +1,7 @@
 import math
-class Dinosaurs:
+
+
+class Dinosaurs():
     def __init__(self, type):
         self.type = type
         self.health = 100
@@ -8,9 +10,9 @@ class Dinosaurs:
 
     def attack_robo(self, robo_obj):
         if robo_obj.health <= 0:
-            robo_obj.health = "Defeated!"
-            robo_obj.energy = "Defeated!"
-            robo_obj.attack_power = "Defeated!"
+            robo_obj.health = 0
+            robo_obj.attack_power = 0
+            robo_obj.power_level = 0
         else:
             robo_obj.health -= math.ceil(self.attack_power / 4)
             self.energy -= 10

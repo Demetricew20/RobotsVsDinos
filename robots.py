@@ -11,9 +11,9 @@ class Robots(Dinosaurs):
 
     def attack_dino(self, dino_obj):
         if dino_obj.health <= 0:
-            dino_obj.health = "Defeated!"
-            dino_obj.energy = "Defeated!"
-            dino_obj.attack_power = "Defeated!"
+            dino_obj.health = 0
+            dino_obj.energy = 0
+            dino_obj.attack_power = 0
         else:
             dino_obj.health -= math.ceil(self.attack_power / 4)
             self.power_level -= 10

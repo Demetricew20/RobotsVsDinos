@@ -1,8 +1,10 @@
+import math
 from robots import Robots
 from dinosaurs import Dinosaurs
 from fleet import Fleet
 from herd import Herd
 from battlefield import Battlefield
+from weapons import Weapons
 
 
 
@@ -10,6 +12,9 @@ from battlefield import Battlefield
 if __name__ == '__main__':
     #Battlefield
     valley = Battlefield("Valley")
+
+    #Weapons
+    robot_weapons = Weapons()
 
 
 
@@ -45,14 +50,17 @@ if __name__ == '__main__':
     robot_megaman.attack_dino(dino_two)
     robot_megaman.attack_dino(dino_two)
     robot_megaman.attack_dino(dino_two)
+    robot_megaman.attack_dino(dino_two)
+    robot_megaman.attack_dino(dino_two)
 
-    dino_three.attack_robo(robot_marvin)
-    dino_three.attack_robo(robot_marvin)
-    dino_three.attack_robo(robot_marvin)
-    dino_three.attack_robo(robot_marvin)
-    dino_three.attack_robo(robot_marvin)
-    dino_one.attack_robo(robot_megaman)
-    dino_one.attack_robo(robot_megaman)
+    robot_marvin.attack_dino(dino_one)
+    robot_marvin.attack_dino(dino_one)
+    robot_marvin.attack_dino(dino_one)
+    robot_marvin.attack_dino(dino_one)
+
+    robot_megaman.attack_dino(dino_three)
+    robot_megaman.attack_dino(dino_three)
+
 
     print(valley)
     print(robot_wally)
@@ -73,19 +81,28 @@ if __name__ == '__main__':
     # print(dino_herd.herd)
 
     def conclude_battle(robot_fleet, dino_herd):
-        robot_health_sum = 0
         for element in robot_fleet.fleet:
-            for robots in element:
-                robot_health_sum += robots.health
-                if (robot_health_sum <= 0):
-                    print("Battle has concluded. The Dinos have won!")
+            count = 0
+            while count <= len(element):
+                for robot in element:
+                    if robot.health <= 0:
+                        element.remove(robot)
+                count += 1
 
-        dino_health_sum = 0
+            if len(element) == 0:
+                return "Battle concluded: Dinos have won!"
+
         for element in dino_herd.herd:
-            for dinos in element:
-                dino_health_sum += dinos.health
-                if (dinos.health <= 0):
-                    print("Battle has concluded. The Robots have won!")
+            count = 0
+            while count <= len(element):
+                for dino in element:
+                    if dino.health <= 0:
+                        element.remove(dino)
+                count += 1
 
+            if len(element) == 0:
+                return "Battle concluded: Robos have won!"
 
-    conclude_battle(robot_fleet, dino_herd)
+        return "Battle Ongoing!"
+
+    print(conclude_battle(robot_fleet, dino_herd))
