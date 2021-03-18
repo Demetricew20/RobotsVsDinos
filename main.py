@@ -11,7 +11,7 @@ from weapons import Weapons
 
 if __name__ == '__main__':
     #Battlefield
-    valley = Battlefield("Valley")
+    battlefield = Battlefield()
 
     #Weapons
     weapons = Weapons()
@@ -65,7 +65,7 @@ if __name__ == '__main__':
     robot_megaman.attack_dino(dino_three)
 
 
-    print(valley)
+    print(battlefield)
     print(robot_wally)
     print(robot_megaman)
     print(robot_marvin)
