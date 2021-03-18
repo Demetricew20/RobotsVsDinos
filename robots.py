@@ -1,6 +1,7 @@
-from weapons import Weapons
+import math
+from dinosaurs import Dinosaurs
 
-class Robots(Weapons):
+class Robots(Dinosaurs):
     def __init__(self, name, weapon):
         self.name = name
         self.weapon = weapon
@@ -8,6 +9,9 @@ class Robots(Weapons):
         self.power_level = 0
         self.attack_power = 0
 
+    def attack_dino(self, dino_obj):
+        dino_obj.health -= math.ceil(self.attack_power / 2)
+
+
     def __repr__(self):
         return f'{self.name} : Weapon: {self.weapon}, Health: {self.health}, Power: {self.power_level}, Attack: {self.attack_power}'
-

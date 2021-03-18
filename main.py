@@ -1,11 +1,15 @@
 from robots import Robots
 from dinosaurs import Dinosaurs
-from weapons import Weapons
+from fleet import Fleet
+from herd import Herd
+from battlefield import Battlefield
 
 
 
 
 if __name__ == '__main__':
+
+    # Robots
     robot_wally = Robots("Wally", "Love")
     robot_wally.power_level = 5
     robot_wally.attack_power = 30
@@ -14,10 +18,12 @@ if __name__ == '__main__':
     robot_megaman.power_level = 40
     robot_megaman.attack_power = 120
 
+
     robot_marvin = Robots("Marvin", "Headbutt")
     robot_marvin.power_level = 32
     robot_marvin.attack_power = 90
 
+    #Dinos
     dino_one = Dinosaurs("Tyrannosaurus")
     dino_one.attack_power = 150
 
@@ -27,11 +33,26 @@ if __name__ == '__main__':
     dino_three = Dinosaurs("Velociraptor")
     dino_three.attack_power = 85
 
+    #Actions
+    robot_megaman.attack_dino(dino_two)
+
     print(robot_wally)
     print(robot_megaman)
     print(robot_marvin)
     print(dino_one)
     print(dino_two)
     print(dino_three)
+
+    #Fleet
+    robot_fleet = Fleet()
+    robot_fleet.add_to_fleet([robot_megaman.name, robot_marvin.name, robot_wally.name])
+    print(robot_fleet.fleet)
+
+    #Herd
+    dino_herd = Herd()
+    dino_herd.add_to_herd([dino_one.type, dino_two.type, dino_three.type])
+    print(dino_herd.herd)
+
+
 
 
