@@ -16,6 +16,7 @@ class Robots(Dinosaurs):
             dino_obj.attack_power = "Defeated!"
         else:
             dino_obj.health -= math.ceil(self.attack_power / 4)
+            self.power_level -= 10
 
 
 
