@@ -1,12 +1,9 @@
-import math
-from robots import Robots
-from dinosaurs import Dinosaurs
+from robots import Robot
+from dinosaurs import Dinosaur
 from fleet import Fleet
 from herd import Herd
 from battlefield import Battlefield
 from weapons import Weapons
-
-
 
 
 if __name__ == '__main__':
@@ -16,46 +13,36 @@ if __name__ == '__main__':
     #Weapons
     weapons = Weapons()
 
-
-
     # Robots
-    robot_wally = Robots("Wally")
+    robot_wally = Robot("Wally")
     robot_wally.power_level = 50
     robot_wally.attack_power = 30
-    # weapons.choose_weapon(robot_wally)
+    weapons.choose_weapon(robot_wally)
 
-
-    robot_megaman = Robots("Mega Man")
+    robot_megaman = Robot("Mega Man")
     robot_megaman.power_level = 110
     robot_megaman.attack_power = 120
 
-
-    robot_marvin = Robots("Marvin")
+    robot_marvin = Robot("Marvin")
     robot_marvin.power_level = 90
     robot_marvin.attack_power = 90
 
     #Dinos
-    dino_one = Dinosaurs("Tyrannosaurus")
+    dino_one = Dinosaur("Tyrannosaurus")
     dino_one.attack_power = 150
-    # weapons.choose_attack(dino_one)
+    weapons.choose_attack(dino_one)
 
-    dino_two = Dinosaurs("Stegosaurus")
+    dino_two = Dinosaur("Stegosaurus")
     dino_two.attack_power = 60
 
-    dino_three = Dinosaurs("Velociraptor")
+    dino_three = Dinosaur("Velociraptor")
     dino_three.attack_power = 85
-
-    #Weapon Selection *Power Adjustments*
-
 
     #Actions
     robot_megaman.attack_dino(dino_two)
     robot_megaman.attack_dino(dino_two)
     robot_megaman.attack_dino(dino_two)
-    robot_megaman.attack_dino(dino_two)
-    robot_megaman.attack_dino(dino_two)
 
-    robot_marvin.attack_dino(dino_one)
     robot_marvin.attack_dino(dino_one)
     robot_marvin.attack_dino(dino_one)
     robot_marvin.attack_dino(dino_one)
@@ -63,7 +50,6 @@ if __name__ == '__main__':
 
     robot_megaman.attack_dino(dino_three)
     robot_megaman.attack_dino(dino_three)
-
 
     print(battlefield)
     print(robot_wally)

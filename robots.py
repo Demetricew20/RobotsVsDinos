@@ -1,8 +1,8 @@
 import math
-from dinosaurs import Dinosaurs
+from dinosaurs import Dinosaur
 from weapons import Weapons
 
-class Robots(Dinosaurs, Weapons):
+class Robot:
     def __init__(self, name):
         self.name = name
         self.weapon = "Fist"
@@ -34,4 +34,4 @@ class Robots(Dinosaurs, Weapons):
             self.weapon = weapon_choice
 
     def __repr__(self):
-        return f'{self.name} - Weapon: {self.weapon}, Health: {self.health}, Power: {self.power_level}, Attack: {self.attack_power}'
+        return f'Robo * {self.name} - Weapon: {self.weapon}, Health: {self.health}, Power: {self.power_level}, Attack: {self.attack_power}'
