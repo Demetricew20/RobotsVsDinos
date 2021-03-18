@@ -19,16 +19,18 @@ if __name__ == '__main__':
 
 
     # Robots
-    robot_wally = Robots("Wally", "Love")
+    robot_wally = Robots("Wally")
     robot_wally.power_level = 50
     robot_wally.attack_power = 30
+    robot_weapons.choose_weapon(robot_wally)
 
-    robot_megaman = Robots("Mega Man", "Cannon")
+
+    robot_megaman = Robots("Mega Man")
     robot_megaman.power_level = 110
     robot_megaman.attack_power = 120
 
 
-    robot_marvin = Robots("Marvin", "Headbutt")
+    robot_marvin = Robots("Marvin")
     robot_marvin.power_level = 90
     robot_marvin.attack_power = 90
 

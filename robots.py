@@ -1,10 +1,11 @@
 import math
 from dinosaurs import Dinosaurs
+from weapons import Weapons
 
-class Robots(Dinosaurs):
-    def __init__(self, name, weapon):
+class Robots(Dinosaurs, Weapons):
+    def __init__(self, name):
         self.name = name
-        self.weapon = weapon
+        self.weapon = "Fist"
         self.health = 100
         self.power_level = 0
         self.attack_power = 0
@@ -18,7 +19,12 @@ class Robots(Dinosaurs):
             dino_obj.health -= math.ceil(self.attack_power / 4)
             self.power_level -= 10
 
-
+    def choose_weapon(self, available_weapons):
+        weapon_choice =  input("Select weapon from available list: ")
+        if weapon_choice not in available_weapons:
+            input("Must select from list, try again: ")
+        else:
+            self.weapon = weapon_choice
 
     def __repr__(self):
         return f'{self.name} : Weapon: {self.weapon}, Health: {self.health}, Power: {self.power_level}, Attack: {self.attack_power}'
