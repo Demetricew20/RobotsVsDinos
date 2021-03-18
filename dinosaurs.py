@@ -4,6 +4,7 @@ import math
 class Dinosaurs():
     def __init__(self, type):
         self.type = type
+        self.attack = 'Stomp'
         self.health = 100
         self.energy = math.ceil(100)
         self.attack_power = 80
@@ -20,4 +21,4 @@ class Dinosaurs():
 
 
     def __repr__(self):
-        return f'{self.type} : Health: {self.health}, Energy: {self.energy}, Attack: {self.attack_power}'
+        return f'{self.type} - Attack: {self.attack}, Health: {self.health}, Energy: {self.energy}, Attack Power: {self.attack_power}'

@@ -14,7 +14,7 @@ if __name__ == '__main__':
     valley = Battlefield("Valley")
 
     #Weapons
-    robot_weapons = Weapons()
+    weapons = Weapons()
 
 
 
@@ -22,7 +22,7 @@ if __name__ == '__main__':
     robot_wally = Robots("Wally")
     robot_wally.power_level = 50
     robot_wally.attack_power = 30
-    robot_weapons.choose_weapon(robot_wally)
+    # weapons.choose_weapon(robot_wally)
 
 
     robot_megaman = Robots("Mega Man")
@@ -37,6 +37,7 @@ if __name__ == '__main__':
     #Dinos
     dino_one = Dinosaurs("Tyrannosaurus")
     dino_one.attack_power = 150
+    # weapons.choose_attack(dino_one)
 
     dino_two = Dinosaurs("Stegosaurus")
     dino_two.attack_power = 60
@@ -48,13 +49,13 @@ if __name__ == '__main__':
 
 
     #Actions
-    #----- Fix health to only display positive int, currently, will display negative before final attack call ----#
     robot_megaman.attack_dino(dino_two)
     robot_megaman.attack_dino(dino_two)
     robot_megaman.attack_dino(dino_two)
     robot_megaman.attack_dino(dino_two)
     robot_megaman.attack_dino(dino_two)
 
+    robot_marvin.attack_dino(dino_one)
     robot_marvin.attack_dino(dino_one)
     robot_marvin.attack_dino(dino_one)
     robot_marvin.attack_dino(dino_one)
