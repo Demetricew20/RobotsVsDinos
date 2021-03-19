@@ -7,29 +7,35 @@ class Robot:
         self.health = 100
         self.power_level = 0
         self.attack_power = 0
-
-
+        self.status = 'Active'
 
     def attack_dino(self, dino_obj):
-        if self.health == 0 or self.power_level == 0:
-            return "Health/Energy depleted"
+        if self.health != 0 and self.power_level <= 0:
+            self.status = 'Resting'
+            return 'Resting, cannot attack'
+        elif self.health == 0:
+            self.status = 'Defeated'
+            return 'Defeated, cannot attack'
         elif dino_obj.health <= 0:
             dino_obj.health = 0
             dino_obj.energy = 0
             dino_obj.attack_power = 0
+            dino_obj.status = 'Defeated'
+            return 'Defeated, cannot be attacked'
         else:
             dino_obj.health -= math.ceil(self.attack_power / 4)
             self.power_level = self.power_level - 10
 
-            def stat_check(dino_obj):
-                if dino_obj.health <= 0:
-                    dino_obj.health = 0
-                elif dino_obj.energy <= 0:
-                    dino_obj.energy = 0
-                elif dino_obj.attack_power <= 0:
-                    dino_obj.attack_power = 0
-
-            stat_check(dino_obj)
+        # def stat_check(dino_obj):
+        #     if dino_obj.health <= 0:
+        #         dino_obj.health = 0
+        #         dino_obj.status = 'Defeated'
+        #     elif dino_obj.energy <= 0:
+        #         dino_obj.energy = 0
+        #     elif dino_obj.attack_power <= 0:
+        #         dino_obj.attack_power = 0
+        #
+        # stat_check(dino_obj)
 
 
     def choose_weapon(self, available_weapons):
@@ -41,4 +47,4 @@ class Robot:
 
     def __repr__(self):
         return f'Robo * {self.name} - Weapon: {self.weapon}, Health: {self.health}, ' \
-               f'Power: {self.power_level}, Attack: {self.attack_power}'
+               f'Power: {self.power_level}, Attack: {self.attack_power}, Status: {self.status}'
