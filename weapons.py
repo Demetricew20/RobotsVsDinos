@@ -32,7 +32,3 @@ class Weapons:
             attack_choice = input("Try again: ")
         else:
             dino_obj.attack = attack_choice.capitalize()
-
-
-
-

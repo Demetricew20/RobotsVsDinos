@@ -1,5 +1,6 @@
 import math
 
+
 class Robot:
     def __init__(self, name):
         self.name = name
@@ -37,9 +38,8 @@ class Robot:
         #
         # stat_check(dino_obj)
 
-
     def choose_weapon(self, available_weapons):
-        weapon_choice =  input("Select weapon from available list: ")
+        weapon_choice = input("Select weapon from available list: ")
         if weapon_choice not in available_weapons:
             input("Must select from list, try again: ")
         else:

@@ -4,7 +4,7 @@ from fleet import Fleet
 from herd import Herd
 from battlefield import Battlefield
 from weapons import Weapons
-
+import ctypes
 
 if __name__ == '__main__':
 
@@ -46,6 +46,9 @@ if __name__ == '__main__':
     #Actions
     robot_megaman.attack_dino(dino_two)
     robot_megaman.attack_dino(dino_two)
+    robot_megaman.attack_dino(dino_three)
+    robot_megaman.attack_dino(dino_three)
+    robot_megaman.attack_dino(dino_three)
     robot_marvin.attack_dino(dino_one)
     robot_marvin.attack_dino(dino_one)
     robot_marvin.attack_dino(dino_one)
@@ -55,6 +58,9 @@ if __name__ == '__main__':
     robot_marvin.attack_dino(dino_two)
     robot_marvin.attack_dino(dino_two)
     robot_marvin.attack_dino(dino_two)
+    robot_marvin.attack_dino(dino_three)
+    robot_marvin.attack_dino(dino_three)
+    robot_marvin.attack_dino(dino_three)
     robot_marvin.attack_dino(dino_three)
     robot_marvin.attack_dino(dino_three)
     dino_two.attack_robo(robot_megaman)
@@ -92,7 +98,8 @@ if __name__ == '__main__':
                 count += 1
 
             if len(element) == 0:
-                return "\nBattle concluded: Dinos have won!"
+                return ctypes.windll.user32.MessageBoxW(0, 'Battle concluded: Dinos have won!',
+                                                        'Robots vs Dinosaurs', 64)
 
         for element in dino_herd.herd:
             count = 0
@@ -103,8 +110,9 @@ if __name__ == '__main__':
                 count += 1
 
             if len(element) == 0:
-                return "\nBattle concluded: Robos have won!"
+                return ctypes.windll.user32.MessageBoxW(0, 'Battle concluded: Robos have won!',
+                                                        'Robots vs Dinosaurs', 64)
 
-        return "\nBattle Ongoing!"
+        return ctypes.windll.user32.MessageBoxW(0, 'Battle is Ongoing!', 'Robots vs Dinosaurs', 64)
 
-    print(conclude_battle(robot_fleet, dino_herd))
+    conclude_battle(robot_fleet, dino_herd)

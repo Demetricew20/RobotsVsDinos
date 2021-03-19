@@ -6,5 +6,3 @@ class Fleet:
 
     def add_to_fleet(self, robot):
         self.fleet.append(robot)
-
-

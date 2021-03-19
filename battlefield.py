@@ -4,7 +4,7 @@ class Battlefield:
     def __init__(self):
         self.battlefields = ['Desert', 'Valley', 'Jungle', 'Milwaukee']
 
-        print(self.battlefields)
+        print(f'Battlefields: {self.battlefields}')
         self.user_input = input("Select battlefield from list: ")
         option_list = self.battlefields.copy()
         lower = []
