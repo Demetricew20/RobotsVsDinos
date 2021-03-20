@@ -5,6 +5,7 @@ from herd import Herd
 from battlefield import Battlefield
 from weapons import Weapons
 import ctypes
+import random
 
 if __name__ == '__main__':
 
@@ -17,22 +18,22 @@ if __name__ == '__main__':
     # Robots
     robot_wally = Robot("Wally")
     robot_wally.power_level = 50
-    robot_wally.attack_power = 30
+    robot_wally.attack_power = 60
     weapons.choose_weapon(robot_wally)
 
     robot_megaman = Robot("Mega Man")
     robot_megaman.power_level = 110
-    robot_megaman.attack_power = 120
+    robot_megaman.attack_power = 100
     weapons.choose_weapon(robot_megaman)
 
     robot_marvin = Robot("Marvin")
     robot_marvin.power_level = 90
-    robot_marvin.attack_power = 90
+    robot_marvin.attack_power = 70
     weapons.choose_weapon(robot_marvin)
 
     #Dinos
     dino_one = Dinosaur("Tyrannosaurus")
-    dino_one.attack_power = 150
+    dino_one.attack_power = 90
     weapons.choose_attack(dino_one)
 
     dino_two = Dinosaur("Stegosaurus")
@@ -40,43 +41,8 @@ if __name__ == '__main__':
     weapons.choose_attack(dino_two)
 
     dino_three = Dinosaur("Velociraptor")
-    dino_three.attack_power = 85
+    dino_three.attack_power = 80
     weapons.choose_attack(dino_three)
-
-    #Actions
-    robot_megaman.attack_dino(dino_two)
-    robot_megaman.attack_dino(dino_two)
-    robot_megaman.attack_dino(dino_three)
-    robot_megaman.attack_dino(dino_three)
-    robot_megaman.attack_dino(dino_three)
-    robot_marvin.attack_dino(dino_one)
-    robot_marvin.attack_dino(dino_one)
-    robot_marvin.attack_dino(dino_one)
-    robot_marvin.attack_dino(dino_one)
-    robot_marvin.attack_dino(dino_one)
-    robot_marvin.attack_dino(dino_one)
-    robot_marvin.attack_dino(dino_two)
-    robot_marvin.attack_dino(dino_two)
-    robot_marvin.attack_dino(dino_two)
-    robot_marvin.attack_dino(dino_three)
-    robot_marvin.attack_dino(dino_three)
-    robot_marvin.attack_dino(dino_three)
-    robot_marvin.attack_dino(dino_three)
-    robot_marvin.attack_dino(dino_three)
-    dino_two.attack_robo(robot_megaman)
-    dino_two.attack_robo(robot_megaman)
-    dino_two.attack_robo(robot_megaman)
-    dino_one.attack_robo(robot_marvin)
-    dino_one.attack_robo(robot_marvin)
-    robot_marvin.attack_dino(dino_one)
-
-    print(battlefield)
-    print(robot_wally)
-    print(robot_megaman)
-    print(robot_marvin)
-    print(dino_one)
-    print(dino_two)
-    print(dino_three)
 
     #Fleet
     robot_fleet = Fleet()
@@ -87,6 +53,35 @@ if __name__ == '__main__':
     dino_herd = Herd()
     dino_herd.add_to_herd([dino_one, dino_two, dino_three])
     # print(dino_herd.herd)
+
+    #Actions **Dinos have advantage when counter condition <= 100 **
+    def battle(fleet, herd):
+        counter = 0
+        for element in fleet:
+            fleet_health = 0
+            for i in range(0, len(element)):
+                fleet_health += element[i].health
+            for obj in herd:
+                herd_health = 0
+                for a in range(0, len(obj)):
+                    herd_health += obj[a].health
+                while counter <= 100 or fleet_health <= 0 or herd_health <= 0:
+                    n = random.randint(0, 2)
+                    i = random.randint(0, 2)
+                    obj[n].attack_robo(element[n])
+                    element[n].attack_dino(obj[i])
+                    counter += 1
+
+    battle(robot_fleet.fleet, dino_herd.herd)
+    # **Health stat will display negative integer if health is dangerously low before final attack**
+
+    print(battlefield)
+    print(robot_wally)
+    print(robot_megaman)
+    print(robot_marvin)
+    print(dino_one)
+    print(dino_two)
+    print(dino_three)
 
     def conclude_battle(robot_fleet, dino_herd):
         for element in robot_fleet.fleet:
