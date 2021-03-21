@@ -14,7 +14,7 @@ class Robot:
         if self.health != 0 and self.power_level <= 0:
             self.status = 'Resting'
             return 'Resting, cannot attack'
-        elif self.health <= 0:
+        elif self.health == 0:
             self.status = 'Defeated'
             return 'Defeated, cannot attack'
         elif dino_obj.health <= 0:

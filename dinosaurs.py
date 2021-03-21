@@ -14,7 +14,7 @@ class Dinosaur:
         if self.health != 0 and self.energy <= 0:
             self.status = 'Resting'
             return 'Resting, cannot attack'
-        if self.health <= 0:
+        if self.health == 0:
             self.status = 'Defeated'
             return 'Defeated, cannot attack'
         elif robo_obj.health <= 0:
