@@ -1,6 +1,7 @@
 # RobotsVsDinos
 Project - Concepts of OOP
 
-Orginal version - Built in Python 3.9
+Built in VSCode using Python 3.7.7 virtual environment
 
-includes pygame version but will only run in Python 3.7.7
+Will display pygame visual of the battlefield and fighters based on the users selection of the battefield
+

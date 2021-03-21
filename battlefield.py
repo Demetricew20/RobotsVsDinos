@@ -6,7 +6,7 @@ from herd import Herd
 
 class Battlefield:
     def __init__(self):
-        self.battlefields = ['Desert', 'Valley', 'Jungle', 'Milwaukee']
+        self.battlefields = ['Desert', 'Valley', 'Grasslands', 'Green Bay']
 
         print(f'Battlefields: {self.battlefields}')
         self.user_input = input("Select battlefield from list: ")
@@ -21,6 +21,8 @@ class Battlefield:
             self.user_input = input("Try Again: ")
         else:
             self.user_input = self.user_input.capitalize()
+        
+        self.image = f'RobotsVsDinos\images\{self.user_input}.jpg'
 
     def __repr__(self):
         return f'\nBattlefield: {self.user_input}\n'

@@ -1,5 +1,5 @@
 import math
-
+import pygame
 
 class Dinosaur:
     def __init__(self, type_dino):
