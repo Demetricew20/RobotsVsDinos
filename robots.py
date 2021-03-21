@@ -1,5 +1,5 @@
 import math
-
+import pygame
 
 class Robot:
     def __init__(self, name):
@@ -26,17 +26,6 @@ class Robot:
         else:
             dino_obj.health -= math.ceil(self.attack_power / 4)
             self.power_level = self.power_level - 10
-
-        # def stat_check(dino_obj):
-        #     if dino_obj.health <= 0:
-        #         dino_obj.health = 0
-        #         dino_obj.status = 'Defeated'
-        #     elif dino_obj.energy <= 0:
-        #         dino_obj.energy = 0
-        #     elif dino_obj.attack_power <= 0:
-        #         dino_obj.attack_power = 0
-        #
-        # stat_check(dino_obj)
 
     def choose_weapon(self, available_weapons):
         weapon_choice = input("Select weapon from available list: ")
