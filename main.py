@@ -16,43 +16,48 @@ if __name__ == '__main__':
     weapons = Weapons()
 
     # Robots
-    robot_wally = Robot("Wally")
+    robot_wally = Robot("Wall-E")
     robot_wally.power_level = 100
     robot_wally.attack_power = 60
-    weapons.choose_weapon(robot_wally)
+    # weapons.choose_weapon(robot_wally)
 
-    robot_megaman = Robot("Mega Man")
+    robot_megaman = Robot("Megaman")
     robot_megaman.power_level = 110
     robot_megaman.attack_power = 100
-    weapons.choose_weapon(robot_megaman)
+    # weapons.choose_weapon(robot_megaman)
 
     robot_marvin = Robot("Marvin")
     robot_marvin.power_level = 120
     robot_marvin.attack_power = 70
-    weapons.choose_weapon(robot_marvin)
+    # weapons.choose_weapon(robot_marvin)
 
     #Dinos
     dino_one = Dinosaur("Tyrannosaurus")
     dino_one.attack_power = 100
-    weapons.choose_attack(dino_one)
+    # weapons.choose_attack(dino_one)
 
     dino_two = Dinosaur("Stegosaurus")
     dino_two.attack_power = 60
-    weapons.choose_attack(dino_two)
+    # weapons.choose_attack(dino_two)
 
     dino_three = Dinosaur("Velociraptor")
     dino_three.attack_power = 85
-    weapons.choose_attack(dino_three)
+    # weapons.choose_attack(dino_three)
 
     #Fleet
     robot_fleet = Fleet()
     robot_fleet.add_to_fleet([robot_megaman, robot_marvin, robot_wally])
-    # print(robot_fleet.fleet)
+    #print(robot_fleet.fleet)
 
     #Herd
     dino_herd = Herd()
     dino_herd.add_to_herd([dino_one, dino_two, dino_three])
     # print(dino_herd.herd)
+
+    for robot in robot_fleet.fleet[0]:
+        weapons.choose_weapon(robot)
+    for dinosaur in dino_herd.herd[0]:
+        weapons.choose_attack(dinosaur)
 
         #Actions
     def battle(fleet, herd):
@@ -76,13 +81,15 @@ if __name__ == '__main__':
 
     #Stats
     print(battlefield)
-    print(robot_wally)
-    print(robot_megaman)
-    print(robot_marvin)
-    print(dino_one)
-    print(dino_two)
-    print(dino_three)
 
+    all_fighters = []
+    for x in robot_fleet.fleet[0]:
+        all_fighters.append(x)
+    for x in dino_herd.herd[0]:
+        all_fighters.append(x)
+
+    for fighters in all_fighters:
+        print(f'\r{fighters}')
 
     def conclude_battle(robot_fleet, dino_herd):
         for element in robot_fleet.fleet:
