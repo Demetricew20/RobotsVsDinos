@@ -4,7 +4,6 @@ from fleet import Fleet
 from herd import Herd
 from battlefield import Battlefield
 from weapons import Weapons
-from pygame_test import *
 import ctypes
 import random
 
